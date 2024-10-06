@@ -1,0 +1,14 @@
+
+Vagrant.configure('2') do |config|
+  (1..1).each do |i|
+  config.vm.define "webserver" do |machine|
+    machine.vm.box = 'ubuntu/focal64'
+    machine.vm.hostname = "webserver"
+    machine.vm.provider "virtualbox" do |vb|
+      vb.name = "debian_vagrant-#{i}"
+      vb.cpus = '2'
+      vb.memory = '2048'
+    end
+  end
+  end
+end
